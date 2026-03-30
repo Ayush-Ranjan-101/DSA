@@ -41,5 +41,7 @@ const findMedianSortedArrays = function (nums1, nums2) {
 
     return 0.0;
 }
+// Time complexity - O(log(min(n1, n2)))
+// Space complexity - O(1)
 
 console.log(findMedianSortedArrays(nums1, nums2));
