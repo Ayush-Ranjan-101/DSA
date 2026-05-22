@@ -11,6 +11,7 @@ const combinationSum2 = function  (candidates, target) {
     const subsequences = (sum, startIndex, currElements) => {
         // Base case 1 : found the target
         if (sum === target) {
+            // Storing a deep copy to handle backtracking mutation
             result.push([...currElements]);
             return;
         }
@@ -25,7 +26,7 @@ const combinationSum2 = function  (candidates, target) {
             // Skip duplicates at the same level, since no other duplicates 
             // should hold the same position as the current element.
             // It may form the same subset again
-            // i > startIndex ensures we pick a duplicate if it's for a 
+            // i > startIndex ensures we pick a duplicate for am index
             if (i > startIndex && candidates[i] === candidates[i - 1]) {
                 continue;
             }
@@ -40,7 +41,7 @@ const combinationSum2 = function  (candidates, target) {
     return result;
 }
 // Generating subset, either include or exlude the current element - O(2^n)
-// Copying combination, creating a shallow copy and storing it - O(n)
+// Copying combination, creating a deep copy and storing it - O(n)
 // Time complexity - O(2^n * n)
 // Sorting - O(n log n) ,but gets overshadowed by O(2^n * n)
 //
